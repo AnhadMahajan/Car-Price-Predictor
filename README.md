@@ -31,7 +31,7 @@ Car Price Predictor/
 
 1. **Clone the repository:**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/AnhadMahajan/Car-Price-Predictor
     cd "Car Price Predictor"
     ```
 

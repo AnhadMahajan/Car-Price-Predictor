@@ -5,17 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Price Prediction Result - AutoValuation Pro</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+]  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <!-- AOS Animation -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
@@ -52,7 +48,6 @@
       min-height: 100vh;
     }
 
-    /* Animated Background */
     .bg-animation {
       position: fixed;
       top: 0;
@@ -79,7 +74,6 @@
       100% { transform: scale(1.2); opacity: 0.05; }
     }
 
-    /* Header */
     header {
       background: rgba(26, 31, 53, 0.95);
       backdrop-filter: blur(10px);
@@ -351,7 +345,7 @@
       margin: 0;
     }
 
-    /* Action Buttons */
+
     .action-buttons {
       display: flex;
       gap: 1.5rem;
@@ -409,7 +403,7 @@
       left: 100%;
     }
 
-    /* Footer */
+
     footer {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border-color);
@@ -546,7 +540,7 @@
   <div class="bg-animation"></div>
   <div class="celebration" id="celebration"></div>
 
-  <!-- Header -->
+
   <header>
     <div class="header-content">
       <a href="/" class="logo">
@@ -564,9 +558,9 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+
   <div class="main-container">
-    <!-- Result Container -->
+
     <div class="result-container" data-aos="fade-up">
       <div class="success-icon">
         <i class="fas fa-check-circle"></i>
@@ -585,7 +579,7 @@
         </div>
       </div>
 
-      <!-- Info Cards -->
+
       <div class="info-grid" data-aos="fade-up" data-aos-delay="500">
         <div class="info-card">
           <i class="fas fa-chart-line"></i>
@@ -609,7 +603,7 @@
         </div>
       </div>
 
-      <!-- Market Insights (Replaces Chart) -->
+
       <div class="market-insights" data-aos="fade-up" data-aos-delay="700">
         <h3 class="insights-title">Market Insights</h3>
         <div class="insights-grid">
@@ -653,7 +647,7 @@
       </div>
     </div>
 
-    <!-- Action Buttons -->
+
     <div class="action-buttons" data-aos="fade-up" data-aos-delay="900">
       <a href="/" class="btn btn-primary">
         <i class="fas fa-calculator"></i>
@@ -670,7 +664,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
+
   <footer>
     <div class="footer-content">
       <p>&copy; 2025 AutoValuation Pro. All rights reserved. |
@@ -681,17 +675,17 @@
   </footer>
 
   <script>
-    // Initialize AOS
+
     AOS.init({
       duration: 1000,
       easing: 'ease-out-cubic',
       once: true
     });
 
-    // GSAP Animations
+
     gsap.registerPlugin(ScrollTrigger);
 
-    // Header animation
+
     gsap.from(".header-content", {
       y: -100,
       opacity: 0,
@@ -699,7 +693,7 @@
       ease: "power3.out"
     });
 
-    // Success icon animation
+
     gsap.from(".success-icon", {
       scale: 0,
       rotation: 180,
@@ -709,7 +703,7 @@
       delay: 0.5
     });
 
-    // Price counter animation
+
     const priceElement = document.getElementById('priceValue');
     const targetPrice = parseInt(priceElement.textContent.replace(/[^\d]/g, ''));
 
@@ -727,7 +721,7 @@
       }
     );
 
-    // Info cards stagger animation
+
     gsap.from(".info-card", {
       y: 50,
       opacity: 0,
@@ -737,7 +731,7 @@
       delay: 1.5
     });
 
-    // Insight items animation
+
     gsap.from(".insight-item", {
       x: -50,
       opacity: 0,
@@ -750,7 +744,7 @@
       }
     });
 
-    // Button animations
+
     gsap.from(".btn", {
       y: 30,
       opacity: 0,
@@ -760,7 +754,7 @@
       delay: 2
     });
 
-    // Confetti animation
+
     function createConfetti() {
       const celebration = document.getElementById('celebration');
       const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
@@ -780,12 +774,12 @@
       }
     }
 
-    // Start confetti on load
+
     window.addEventListener('load', () => {
       setTimeout(createConfetti, 1000);
     });
 
-    // Share functionality
+
     function shareResult() {
       if (navigator.share) {
         navigator.share({
@@ -794,10 +788,10 @@
           url: window.location.href
         });
       } else {
-        // Fallback - copy to clipboard
+
         const text = `My car is valued at ₹${targetPrice.toLocaleString('en-IN')} by AutoValuation Pro! Check it out at ${window.location.origin}`;
         navigator.clipboard.writeText(text).then(() => {
-          // Show toast notification
+
           const toast = document.createElement('div');
           toast.style.cssText = `
             position: fixed;
@@ -832,7 +826,6 @@
       }
     }
 
-    // Button hover effects
     document.querySelectorAll('.btn').forEach(btn => {
       btn.addEventListener('mouseenter', () => {
         gsap.to(btn, {
@@ -851,7 +844,6 @@
       });
     });
 
-    // Parallax effect for background
     gsap.to(".bg-animation", {
       yPercent: -50,
       ease: "none",
@@ -863,7 +855,6 @@
       }
     });
 
-    // Card hover animations
     document.querySelectorAll('.info-card, .insight-item').forEach(card => {
       card.addEventListener('mouseenter', () => {
         gsap.to(card, {

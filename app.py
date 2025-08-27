@@ -13,15 +13,12 @@ feature_cols = model_artifact["feature_cols"]
 app = Flask(__name__)
 
 def preprocess_input(form_data):
-    """Convert form inputs into dataframe row consistent with training"""
     row = pd.DataFrame([{col: np.nan for col in feature_cols}])
 
-    # Fill values from form
     for k, v in form_data.items():
         if k in row.columns:
             row.at[0, k] = v
 
-    # Normalize mileage, engine, max_power if needed
     for col in ["mileage", "engine", "max_power"]:
         if col in row.columns and pd.notna(row.at[0, col]):
             try:
@@ -29,7 +26,7 @@ def preprocess_input(form_data):
             except:
                 pass
 
-    # Cast numeric fields if possible
+
     for col in row.columns:
         try:
             row[col] = pd.to_numeric(row[col])
