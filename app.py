@@ -29,7 +29,6 @@ def preprocess_input(form_data):
             except:
                 row.at[0, col] = np.nan
 
-    # ✅ calculate vehicle age if required
     if "vehicle_age" in row.columns and "year" in form_data:
         current_year = datetime.now().year
         try:
@@ -37,8 +36,7 @@ def preprocess_input(form_data):
         except:
             row["vehicle_age"] = np.nan
 
-    # Drop unwanted columns
-    drop_cols = ["car_name", "brand", "year"]  # drop 'year' if only using vehicle_age
+    drop_cols = ["car_name", "brand", "year"]
     row = row.drop(columns=[c for c in drop_cols if c in row.columns], errors="ignore")
 
     return row
