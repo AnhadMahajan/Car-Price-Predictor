@@ -571,13 +571,13 @@
         Based on current market trends and vehicle specifications, here's your estimated car value:
       </p>
 
-      <div class="price-display" data-aos="zoom-in" data-aos-delay="300">
-        <div class="price-label">Estimated Market Value</div>
-        <div class="price-amount">
-          <span class="price-currency">₹</span>
-          <span id="priceValue">8,50,000</span>
-        </div>
-      </div>
+<div class="price-display" data-aos="zoom-in" data-aos-delay="300">
+  <div class="price-label text-muted">Estimated Market Value</div>
+  <div class="price-amount fs-2 fw-bold text-success">
+    <span class="price-currency">₹</span>
+    <span id="priceValue">{{ "{:,.0f}".format(prediction) }}</span>
+  </div>
+</div>
 
 
       <div class="info-grid" data-aos="fade-up" data-aos-delay="500">
